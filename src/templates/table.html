@@ -1,0 +1,41 @@
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Product name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Funciton</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="product in sanPham">
+      <th scope="row">{{ product.idProduct }}</th>
+      <td>{{ product.nameProduct }}</td>
+      <td>{{ product.priceProduct }}</td>
+      <td>{{ product.quantityProduct }}</td>
+      <td>{{ product.nameBrand.join(', ') }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          ng-click="editProduct(product)"
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          ng-click="deleteProduct(product)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
