@@ -2,58 +2,60 @@
 <html lang="en" ng-app="adminShopApp">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document Title</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
-  <script src="../services/QuanLiSanPhamService.js"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+    <script src="../services/QuanLiSanPhamService.js"></script>
 </head>
 
 <body ng-controller="quanLiSanPham">
-  <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col-md-12 d-flex justify-content-center">
-        <h1>Quản lí Sản phẩm</h1>
-      </div>
-      <ng-include src="'../components/addProduct.html'"></ng-include>
-      <ng-include src="'../components/updateProduct.html'"></ng-include>
+        <div class="col-md-12 d-flex justify-content-center">
+            <h1>Quản lí Sản phẩm</h1>
+        </div>
+        <ng-include src="'../components/addProduct.html'"></ng-include>
+        <ng-include src="'../components/updateProduct.html'"></ng-include>
     </div>
 
     <div class="row search">
-      <div class="col mb-3 d-flex justify-content-end">
-        <div class="d-flex w-50">
-          <div style="margin-right: 10px;">
-            <label for="" class="col-form-label">Filter Price</label>
-            <select class="form-select w-100" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option value="1">Thấp đến cao</option>
-              <option value="2">Cao đến thấp</option>
-            </select>
-          </div>
-          <div style="margin-right: 10px;">
-            <label for="brand" class="col-form-label">Filter Brand</label>
-            <select class="form-select w-100" 
-              ng-model="requestDataProduct.idBrandFilter"
-              ng-options="brand.idBrand as brand.name for brand in listBrand">
-              <option value="" disabled>Select a brand</option>
-            </select>
+        <div class="col mb-3 d-flex justify-content-end">
+            <div class="d-flex w-50">
+                <div style="margin-right: 10px;">
+                    <label class="col-form-label">Filter Price</label>
+                    <select class="form-select w-100 form-control rounded" aria-label="Default select example"
+                            ng-change="filterPrice()" ng-model="value">
+                        <option value="" selected>Open this select menu</option>
+                        <option value="asc">Thấp đến cao</option>
+                        <option value="desc">Cao đến thấp</option>
+                    </select>
+                </div>
+                <div style="margin-right: 10px;">
+                    <label class="col-form-label">Filter Brand</label>
+                    <select class="form-select w-100 form-control rounded" ng-change="filterBrand()"
+                            ng-model="valueBrand"
+                            ng-options="brand.idBrand as brand.name for brand in listBrand">
+                        <option value="" selected>Select a brand</option>
+                    </select>
 
-          </div style="margin-right: 10px;">
+                </div>
 
+            </div>
         </div>
-      </div>
 
-      <div class="col-12 mt-3">
-        <ng-include src="'../components/table.html'"></ng-include>
-      </div>
+
     </div>
-  </div>
+    <div class="col-12 mt-3">
+        <ng-include src="'../components/table.html'"></ng-include>
+    </div>
+</div>
 </body>
 
 </html>

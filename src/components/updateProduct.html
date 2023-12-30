@@ -1,5 +1,5 @@
 <div class="modal fade" id="exampleModalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -13,22 +13,23 @@
                     <div class="form-group">
                         <label for="productName" class="col-form-label">Product name:</label>
                         <input ng-model="requestDataUpdate.nameProduct" type="text" class="form-control"
-                            id="productName" />
+                               id="productName"/>
                     </div>
                     <div class="form-group">
                         <label for="price" class="col-form-label">Price:</label>
-                        <input ng-model="requestDataUpdate.price" type="number" class="form-control" id="price" />
+                        <input ng-model="requestDataUpdate.price" type="number" class="form-control" id="price"/>
                     </div>
                     <div class="form-group">
                         <label for="quantity" class="col-form-label">Quantity:</label>
-                        <input ng-model="requestDataUpdate.quantity" type="number" class="form-control" id="quantity" />
+                        <input ng-model="requestDataUpdate.quantity" type="number" class="form-control" id="quantity"/>
                     </div>
                     <div class="form-group">
                         <label for="brand" class="col-form-label">Brand:</label>
-                        <select class="form-select w-100" ng-model="requestDataUpdate.idBrand" 
-                            ng-options="brand.idBrand as brand.name for brand in listBrand">
+                        <select class="form-select w-100 form-control rounded" ng-model="requestDataUpdate.idBrand"
+                                ng-options="brand.idBrand as brand.name for brand in listBrand">
                             <option value="" selected>Select a brand</option>
                         </select>
+
                     </div>
                 </form>
             </div>
