@@ -20,11 +20,11 @@
       <td>{{ product.nameBrand.join(', ') }}</td>
       <td>
         <button
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#exampleModal"
-          ng-click="editProduct(product)"
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModalUpdate"
+        ng-click = "editProduct(product.idProduct)"
         >
           Edit
         </button>
